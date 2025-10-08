@@ -1,0 +1,33 @@
+name: Futilities
+version: 1.0
+description: Plugin pour la gestion des item custom pour le pvp faction
+author: GF
+main: org.gf.futilities.FUtilities
+api-version: 1.12
+
+commands:
+  fu:
+    description: Commande principale de FUtilities
+    usage: /fu <item|farm|bat> [args]
+    aliases: [futilities]
+
+permissions:
+  futilities.admin:
+    description: Permission administrateur pour toutes les commandes FUtilities
+    default: op
+    children:
+      futilities.item: true
+      futilities.farm: true
+      futilities.bat: true
+  futilities.item:
+    description: Permission pour la commande /fu item
+    default: op
+  futilities.farm:
+    description: Permission pour la commande /fu farm
+    default: op
+  futilities.bat:
+    description: Permission pour la commande /fu bat
+    default: op
+  futilities.hammer:
+    description: Permission pour la commande /fu hammer
+    default: op

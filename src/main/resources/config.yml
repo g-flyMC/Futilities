@@ -1,0 +1,239 @@
+# === HOUE DE FARM ÉVOLUTIVE (Système par culture) ===
+farmhoe:
+  levels:
+    1:
+      lore:
+        - "&7Niveau 1: Simple fermier"
+        - "&7Progression vers niveau 2:"
+        - "&7  Blé: &e%wheat%&7/&c%req_wheat%"
+        - "&7  Carottes: &e%carrot%&7/&c%req_carrot%"
+        - "&7  Pommes de terre: &e%potato%&7/&c%req_potato%"
+        - "&7  Nether Wart: &e%nether_wart%&7/&c%req_nether_wart%"
+      required:
+        wheat: 50
+        carrot: 20
+        potato: 30
+        nether_wart: 10
+      abilities: []
+
+    2:
+      lore:
+        - "&7Niveau 2: Fermier aguerri"
+        - "&7Progression vers niveau 3:"
+        - "&7  Blé: &e%wheat%&7/&c%req_wheat%"
+        - "&7  Carottes: &e%carrot%&7/&c%req_carrot%"
+        - "&7  Pommes de terre: &e%potato%&7/&c%req_potato%"
+        - "&7  Nether Wart: &e%nether_wart%&7/&c%req_nether_wart%"
+        - "&aNouveaux pouvoirs débloqués!"
+      required:
+        wheat: 150
+        carrot: 80
+        potato: 100
+        nether_wart: 50
+      abilities:
+        - TILL_3x3
+
+    3:
+      lore:
+        - "&7Niveau 3: Maître cultivateur"
+        - "&7Progression vers niveau 4:"
+        - "&7  Blé: &e%wheat%&7/&c%req_wheat%"
+        - "&7  Carottes: &e%carrot%&7/&c%req_carrot%"
+        - "&7  Pommes de terre: &e%potato%&7/&c%req_potato%"
+        - "&7  Nether Wart: &e%nether_wart%&7/&c%req_nether_wart%"
+        - "&6Multiplicateur de récoltes activé!"
+      required:
+        wheat: 300
+        carrot: 200
+        potato: 250
+        nether_wart: 100
+      abilities:
+        - TILL_3x3
+        - PLANT_3x3
+        - MULTIPLIER_1_5
+
+    4:
+      lore:
+        - "&6Niveau 4: Grand maître fermier"
+        - "&6&lNiveau Maximum Atteint!"
+        - "&7Statistiques totales:"
+        - "&7  Blé récolté: &e%wheat%"
+        - "&7  Carottes récoltées: &e%carrot%"
+        - "&7  Pommes de terre récoltées: &e%potato%"
+        - "&7  Nether Wart récolté: &e%nether_wart%"
+        - "&7Toutes les capacités débloquées"
+      required:
+        wheat: -1        # -1 = niveau maximum
+        carrot: -1
+        potato: -1
+        nether_wart: -1
+      abilities:
+        - TILL_3x3
+        - PLANT_3x3
+        - HARVEST_3x3
+        - MULTIPLIER_2# Configuration du plugin FUtilities
+# Compatible Spigot 1.12 / Minecraft 1.8+
+
+# === ÉPÉES CUSTOMISÉES ===
+items:
+  fire_sword:
+    name: "&cÉpée de Feu"
+    material: DIAMOND_SWORD
+    lore:
+      - "&7Une épée enflammée qui brûle vos ennemis"
+      - "&7Respawns restants: &e%respawn%"
+    enchantments:
+      - "DAMAGE_ALL:10"
+      - "FIRE_ASPECT:2"
+    unbreakable: true
+    potion-effect:
+      type: FIRE_RESISTANCE
+      target: SELF      # SELF ou ENEMY
+      duration: 100     # en ticks (20 ticks = 1 seconde)
+      amplifier: 1      # niveau de l'effet (1 = niveau I)
+      chance: 50        # % de chance que l'effet s'applique
+    respawn: 3          # -1 = infini, 0 = pas de respawn
+
+  ice_sword:
+    name: "&bÉpée de Glace"
+    material: IRON_SWORD
+    lore:
+      - "&7Une épée glaciale qui ralentit vos adversaires"
+      - "&7Respawns restants: &e%respawn%"
+    enchantments:
+      - "DAMAGE_ALL:5"
+      - "KNOCKBACK:3"
+    unbreakable: true
+    potion-effect:
+      type: SLOW
+      target: ENEMY
+      duration: 60
+      amplifier: 2
+      chance: 75
+    respawn: 5
+
+  thunder_sword:
+    name: "&eÉpée de la Foudre"
+    material: GOLD_SWORD
+    lore:
+      - "&7L'épée des dieux du tonnerre"
+      - "&7Respawns restants: &e%respawn%"
+    enchantments:
+      - "DAMAGE_ALL:15"
+      - "LOOTING:3"
+    unbreakable: true
+    potion-effect:
+      type: SPEED
+      target: SELF
+      duration: 200
+      amplifier: 2
+      chance: 100
+    respawn: -1         # Infini
+
+
+# === BATISSEUSES ===
+builders:
+  1:
+    name: "&bBatisseuse de pierre"
+    material: STICK
+    lore:
+      - "&7Construit des colonnes de pierre"
+      - "&7de la couche 0 à la couche 256"
+      - "&7Utilisations restantes: &e%uses%"
+    block: STONE
+    uses: 10
+
+  2:
+    name: "&aBatisseuse de verre"
+    material: BLAZE_ROD
+    lore:
+      - "&7Place des piliers de verre transparents"
+      - "&7Parfait pour les constructions modernes"
+      - "&7Utilisations restantes: &e%uses%"
+    block: GLASS
+    uses: 5
+
+  3:
+    name: "&6Batisseuse d'or"
+    material: GOLD_INGOT
+    lore:
+      - "&7Colonnes dorées pour les palais"
+      - "&7Matériau de luxe et de prestige"
+      - "&7Utilisations restantes: &e%uses%"
+    block: GOLD_BLOCK
+    uses: 3
+
+  4:
+    name: "&4Batisseuse d'obsidienne"
+    material: OBSIDIAN
+    lore:
+      - "&7Piliers indestructibles d'obsidienne"
+      - "&7Pour les forteresses les plus solides"
+      - "&7Utilisations restantes: &e%uses%"
+    block: OBSIDIAN
+    uses: 1
+
+  5:
+    name: "&dBatisseuse de quartz"
+    material: QUARTZ
+    lore:
+      - "&7Élégantes colonnes de quartz"
+      - "&7Style architectural raffiné"
+      - "&7Utilisations restantes: &e%uses%"
+    block: QUARTZ_BLOCK
+    uses: 7
+
+  6:
+    name: "&2Batisseuse d'émeraude"
+    material: EMERALD
+    lore:
+      - "&7Colonnes d'émeraude étincelantes"
+      - "&7Le summum du luxe architectural"
+      - "&7Utilisations restantes: &e%uses%"
+    block: EMERALD_BLOCK
+    uses: 2
+
+# === MESSAGES DU PLUGIN ===
+messages:
+  prefix: "&8[&6FUtilities&8]&r "
+  no_permission: "&cVous n'avez pas la permission d'utiliser cette commande!"
+  player_only: "&cSeuls les joueurs peuvent utiliser cette commande!"
+  invalid_args: "&cUtilisation: /fu <item|farm|bat> [args]"
+
+  item:
+    not_found: "&cItem '%item%' non trouvé dans la configuration!"
+    given: "&aVous avez reçu l'item: %name%"
+    error: "&cErreur lors de la création de l'item!"
+
+  farm:
+    invalid_level: "&cNiveau %level% non trouvé dans la configuration!"
+    given: "&aVous avez reçu une houe de farm niveau %level%!"
+    levelup: "&a✦ Votre houe est passée au niveau %level%!"
+    error: "&cErreur lors de la création de la houe!"
+
+  builder:
+    not_found: "&cBatisseuse '%id%' non trouvée dans la configuration!"
+    given: "&aVous avez reçu: %name%"
+    column_built: "&aColonne construite! Utilisations restantes: &e%uses%"
+    exhausted: "&6Votre batisseuse est épuisée et disparaît!"
+    no_uses: "&cCette batisseuse n'a plus d'utilisations!"
+    no_blocks_placed: "&cAucun bloc n'a pu être placé à cette position!"
+    invalid_block: "&cType de bloc invalide: %block%"
+    error: "&cErreur lors de la création de la batisseuse!"
+
+# === PARAMÈTRES AVANCÉS ===
+settings:
+  # Délai en ticks avant de redonner les items après respawn
+  respawn_delay: 5
+
+  # Messages de debug (true/false)
+  debug: false
+
+  # Limite d'expérience par action de farm
+  farm_exp_per_harvest: 1
+
+  # Hauteur maximale pour les colonnes (batisseuses)
+  max_column_height: 256
+
+  # Hauteur minimale pour les colonnes
+  min_column_height: 0
